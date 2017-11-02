@@ -1,3 +1,5 @@
+package lab1_4;
+
 public class lab1_4_5 {
     public static void main(String[] args) {
         int a = 10, b = 10, c = 100;

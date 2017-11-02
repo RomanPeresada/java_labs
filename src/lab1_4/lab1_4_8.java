@@ -1,3 +1,5 @@
+package lab1_4;
+
 public class lab1_4_8 {
     public static void main(String[] args) {
         char ch =11;
