@@ -47,7 +47,7 @@ public class CounterValue {
 
                     if (index[el] != -1) {
                         System.out.print(index[el]);
-                        if(el<index.length-1 && (index[el+1]!=-1 ||(el<index.length-2&& (index[el+1]!=-1) ||index[el+2]!=-1)) ||(el<index.length-3&& (index[el+1]!=-1 || index[el+2]!=-1 || index[el+3]!=1)))
+                        if(el<index.length-1 && (index[el+1]!=-1 ||(el<index.length-2&& (index[el+2]!=-1)) ||(el<index.length-3 && index[el+3]!=1)))
                             System.out.print(",");
                     }
                     if (el == index.length - 1)
