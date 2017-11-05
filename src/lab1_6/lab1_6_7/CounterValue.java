@@ -32,19 +32,20 @@ public class CounterValue {
             }
             k = 0;
             System.out.print("[");
-            if (index[2] - index[0] == 2 && index [1]!=-1)
-                System.out.print(index[0] + "-" + index[2] + "]");
-            else if (index[3]-index[0]==3 && index [2]!=-1 && index [1]!=-1) {
+            if (index[3]-index[0]==3 && index [2]!=-1 && index [1]!=-1) {
                 System.out.print(index[0] + "-" + index[3] + "]");
             }
+            else if (index[2] - index[0] == 2 && index [1]!=-1)
+                System.out.print(index[0] + "-" + index[2] + "]");
+
             else if(index[3]-index[1]==2 && index [2]!=-1)
             {
                 System.out.print(index[1] + "-" + index[3] + "]");
             }
+            else if(index[0]!=-1 && index[1]==-1 && index[2]==-1 && index[3]==-1)
+                System.out.print(index[0]+ "]");
             else {
-
                 for (int el = 0; el < index.length; el++) {
-
                     if (index[el] != -1) {
                         System.out.print(index[el]);
                         if(el<index.length-1 && (index[el+1]!=-1 ||(el<index.length-2&& (index[el+2]!=-1)) ||(el<index.length-3 && index[el+3]!=1)))
