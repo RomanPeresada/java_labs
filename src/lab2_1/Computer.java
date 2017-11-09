@@ -54,7 +54,7 @@ class ObjectComputer {
     }
 
     public void view() {
-        System.out.println("Frequency: "+frequency+"\nPower: "+power+"\nModel: "+model+"\nPrice: "+price+"\nisWorking: "+isWorking);
+        System.out.println("Frequency: "+getFrequency()+"\nPower: "+getPower()+"\nModel: "+getModel()+"\nPrice: "+getPrice()+"\nisWorking: "+isWorking());
         System.out.println();
     }
 }
