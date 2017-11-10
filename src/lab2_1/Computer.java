@@ -16,8 +16,10 @@ class ObjectComputer {
     }
 
     public void addPercentToPrice(double percent) {
+
         percent /= 100;
-        price *= percent;
+        percent *=price;
+        price += percent;
     }
 
 
@@ -69,6 +71,10 @@ public class Computer {
             arrayComputers[i].setModel("LG"+(i+1)*20);
             arrayComputers[i].setFrequency(2.1+(0.2)*i);
             arrayComputers[i].setWorking(true);
+        }
+        for(int i = 0; i < 5; i++)
+        {
+            arrayComputers[i].view();
         }
         for (int i = 0; i < 5; i++) {
             arrayComputers[i].addPercentToPrice(10);
