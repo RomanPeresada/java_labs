@@ -26,6 +26,27 @@ public class Monitor extends Device {
         this.resolutionY = resolutionY;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
+        Monitor monitor = (Monitor) o;
 
+        if (resolutionX != monitor.resolutionX) return false;
+        return resolutionY == monitor.resolutionY;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = resolutionX;
+        result = 31 * result + resolutionY;
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Monitor: " + "manufacturer = " + getManufacturer() + ", price = " + getPrice() + ", Serial number = " + getSerialNumber() +
+                "resolutionX=" + resolutionX + ", resolutionY=" + resolutionY;
+    }
 }
