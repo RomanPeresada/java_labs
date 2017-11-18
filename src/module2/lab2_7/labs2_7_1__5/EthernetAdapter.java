@@ -1,4 +1,4 @@
-package module2.lab2_7;
+package module2.lab2_7.labs2_7_1__5;
 
 public class EthernetAdapter extends Device {
     private int speed;
