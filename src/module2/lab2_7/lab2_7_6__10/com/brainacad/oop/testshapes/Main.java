@@ -4,8 +4,8 @@ package module2.lab2_7.lab2_7_6__10.com.brainacad.oop.testshapes;
 public class Main {
     public static void main(String[] args) {
 
-        Shape[] shapes = new Shape[9];
-        double sumArea = 0, sumRectArea = 0, sumTriangleArea = 0, sumCircleArea = 0;
+        Shape[] shapes = new Shape[9]; //желательно константой размер вынести
+        double sumArea = 0, sumRectArea = 0, sumTriangleArea = 0, sumCircleArea = 0; //значения и так 0 по умолчанию
         for (int i = 0; i < 5; i++) {
             shapes[i] = new Rectangle("YELLOW", 2 * i, (3 * (i + 1)));
         }
