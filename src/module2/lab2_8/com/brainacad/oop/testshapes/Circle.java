@@ -1,6 +1,7 @@
 package module2.lab2_8.com.brainacad.oop.testshapes;
 
-import java.util.Comparator;
+import java.util.regex.Matcher;
+
 
 import static module2.lab2_4.MyMath.PI;
 
@@ -36,5 +37,34 @@ public class Circle extends Shape implements Comparable {
         if (this.calculateArea() < c.calculateArea()) return -1;
         return 0;
     }
+
+    public static Circle parseCircle(String string) {
+
+        Matcher matcherForShape = PATTERN_FOR_SHAPE.matcher(string);
+        Matcher matcherForArguments = PATTERN_FOR_ARGUMENTS.matcher(string);
+        Matcher matcherForColor = PATTERN_FOR_COLOR.matcher(string);
+        String color = "";
+        while (matcherForColor.find()) {
+            color = matcherForColor.group();
+        }
+        String shape = "";
+        while (matcherForShape.find()) {
+            shape = matcherForShape.group();
+        }
+
+        if (shape.equals("Circle")) {
+            double radius = 0;
+            while (matcherForArguments.find()) {
+                radius = Double.parseDouble(matcherForArguments.group());
+
+            }
+            return new Circle(color, radius);
+
+        } else {
+            return null;
+        }
+
+    }
+
 
 }

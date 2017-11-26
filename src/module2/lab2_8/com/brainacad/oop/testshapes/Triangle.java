@@ -1,7 +1,7 @@
 package module2.lab2_8.com.brainacad.oop.testshapes;
 
+import java.util.regex.Matcher;
 
-import java.util.Comparator;
 
 import static java.lang.Math.sqrt;
 
@@ -39,6 +39,37 @@ public class Triangle extends Shape implements Comparable {
         if (this.calculateArea() > c.calculateArea()) return 1;
         if (this.calculateArea() < c.calculateArea()) return -1;
         return 0;
+    }
+
+    public static Triangle parseTriangle(String string){
+
+        Matcher matcherForShape = PATTERN_FOR_SHAPE.matcher(string);
+        Matcher matcherForArguments = PATTERN_FOR_ARGUMENTS.matcher(string);
+        Matcher matcherForColor = PATTERN_FOR_COLOR.matcher(string);
+        String color = "";
+        while (matcherForColor.find()) {
+            color = matcherForColor.group();
+        }
+        String shape = "";
+        while (matcherForShape.find()) {
+            shape = matcherForShape.group();
+        }
+
+
+        if (shape.equals("Triangle")) {
+            double[] arrayOfTriangle = new double[3];
+            int j = 0;
+            while (matcherForArguments.find()) {
+                Double d = Double.parseDouble(matcherForArguments.group());
+                arrayOfTriangle[j] = d;
+                j++;
+            }
+            return new Triangle(color, arrayOfTriangle[0], arrayOfTriangle[1], arrayOfTriangle[2]);
+
+        }
+        else{
+            return null;
+        }
     }
 
 }

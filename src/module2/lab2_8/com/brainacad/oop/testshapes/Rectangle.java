@@ -1,5 +1,7 @@
 package module2.lab2_8.com.brainacad.oop.testshapes;
 
+import java.util.regex.Matcher;
+
 public class Rectangle extends Shape implements Comparable {
     private double height;
     private double width;
@@ -32,4 +34,34 @@ public class Rectangle extends Shape implements Comparable {
         if (this.width < c.width) return 1;
         return 0;
     }
+
+    public static Rectangle parseRectangle(String string) {
+        Matcher matcherForShape = PATTERN_FOR_SHAPE.matcher(string);
+        Matcher matcherForArguments = PATTERN_FOR_ARGUMENTS.matcher(string);
+        Matcher matcherForColor = PATTERN_FOR_COLOR.matcher(string);
+        String color = "";
+        while (matcherForColor.find()) {
+            color = matcherForColor.group();
+        }
+        String shape = "";
+        while (matcherForShape.find()) {
+            shape = matcherForShape.group();
+        }
+
+        if (shape.equals("Rectangle")) {
+            double[] arrayOfRectangle = new double[2];
+            int i = 0;
+            while (matcherForArguments.find()) {
+                Double d = Double.parseDouble(matcherForArguments.group());
+                arrayOfRectangle[i] = d;
+                i++;
+            }
+            return new Rectangle(color, arrayOfRectangle[0], arrayOfRectangle[1]);
+
+        } else {
+            return null;
+        }
+
+    }
+
 }
