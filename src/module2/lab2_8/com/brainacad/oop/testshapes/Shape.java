@@ -43,7 +43,7 @@ public abstract class Shape implements Drawable {
             case "Circle":
                 return Circle.parseCircle(string);
             default:
-                throw new InvalidShapesStringException("String is invalid!");
+                throw new InvalidShapesStringException("Shape isn`t!");
 
 
         }

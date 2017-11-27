@@ -40,29 +40,21 @@ public class Circle extends Shape implements Comparable {
 
     public static Circle parseCircle(String string) {
 
-        Matcher matcherForShape = PATTERN_FOR_SHAPE.matcher(string);
         Matcher matcherForArguments = PATTERN_FOR_ARGUMENTS.matcher(string);
         Matcher matcherForColor = PATTERN_FOR_COLOR.matcher(string);
         String color = "";
         while (matcherForColor.find()) {
             color = matcherForColor.group();
         }
-        String shape = "";
-        while (matcherForShape.find()) {
-            shape = matcherForShape.group();
+
+
+        double radius = 0;
+        while (matcherForArguments.find()) {
+            radius = Double.parseDouble(matcherForArguments.group());
+
         }
+        return new Circle(color, radius);
 
-        if (shape.equals("Circle")) {
-            double radius = 0;
-            while (matcherForArguments.find()) {
-                radius = Double.parseDouble(matcherForArguments.group());
-
-            }
-            return new Circle(color, radius);
-
-        } else {
-            return null;
-        }
 
     }
 
