@@ -8,7 +8,7 @@ public class GravityCalculator {
     public static double calculateDistance(double time) {
         double v = 2 * time - 1;
         double x = time * time - time + 5;
-        double distance = abs(0.5 * ACCELERATION * time * time + v + time + x);
-        return distance;
+        return abs(0.5 * ACCELERATION * time * time + v + time + x);
+
     }
 }

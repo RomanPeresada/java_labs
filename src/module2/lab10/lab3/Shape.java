@@ -51,8 +51,8 @@ public abstract class Shape implements Drawable {
                     arrayOfRectangle[i] = d;
                     i++;
                 }
-                Rectangle rectangle = new Rectangle(color, arrayOfRectangle[0], arrayOfRectangle[1]);
-                return rectangle;
+                return new Rectangle(color, arrayOfRectangle[0], arrayOfRectangle[1]);
+
             case "Triangle":
                 double[] arrayOfTriangle = new double[3];
                 int j = 0;
@@ -61,16 +61,16 @@ public abstract class Shape implements Drawable {
                     arrayOfTriangle[j] = d;
                     j++;
                 }
-                Triangle triangle = new Triangle(color, arrayOfTriangle[0], arrayOfTriangle[1], arrayOfTriangle[2]);
-                return triangle;
+                return new Triangle(color, arrayOfTriangle[0], arrayOfTriangle[1], arrayOfTriangle[2]);
+
             case "Circle":
                 double radius = 0;
                 while (matcherForArguments.find()) {
                     radius = Double.parseDouble(matcherForArguments.group());
                 }
                 int k = 0;
-                Circle circle = new Circle(color, radius);
-                return circle;
+                return new Circle(color, radius);
+
             default:
                 return null;
 

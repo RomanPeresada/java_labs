@@ -1,10 +1,7 @@
 package module2.lab2_8.com.brainacad.oop.testshapes;
 
 
-import com.sun.org.apache.regexp.internal.RE;
 
-import java.util.Arrays;
-import java.util.Comparator;
 import java.util.Scanner;
 
 import static module2.lab2_8.com.brainacad.oop.testshapes.Shape.parseShape;
