@@ -16,16 +16,21 @@ public class Main {
         String[] arrayOfStrings2 = {"Rectangle:RED:10,20",
                 "Triangle:GREEN:9,7,12",
                 "Circle:BLACK:10"};
+        try {
+            Shape[] shapes2 = new Shape[3];
+            shapes2[0] = parseShape(arrayOfStrings2[0]);
+            shapes2[1] = parseShape(arrayOfStrings2[1]);
+            shapes2[2] = parseShape(arrayOfStrings2[2]);
+            for (Shape s : shapes2) {
+                System.out.println(s);
+            }
+            System.out.println("***************");
 
-        Shape[] shapes2 = new Shape[3];
-        shapes2[0] = parseShape(arrayOfStrings2[0]);
-        shapes2[1] =  parseShape(arrayOfStrings2[1]);
-        shapes2[2] =  parseShape(arrayOfStrings2[2]);
-
-        for(Shape s: shapes2){
-            System.out.println(s);
+        }catch (InvalidShapesStringException e){
+            System.out.println(e.getMessage());
         }
-        System.out.println("***************");
+
+
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter of quantity strings ");
@@ -35,18 +40,17 @@ public class Main {
             arrayOfStrings[i] = scanner.nextLine();
         }
 
-        Shape[] shapes = new Shape[quantity];
-        for (int i = 0; i < quantity; i++) {
-            shapes[i] = Shape.parseShape(arrayOfStrings[i]);
+        try {
+            Shape[] shapes = new Shape[quantity];
+            for (int i = 0; i < quantity; i++) {
+                shapes[i] = Shape.parseShape(arrayOfStrings[i]);
+            }
+            for (Shape s : shapes) {
+                System.out.println(s);
+            }
+        }catch (InvalidShapesStringException e){
+            System.out.println(e.getMessage());
         }
-        for(Shape s: shapes){
-            System.out.println(s);
-        }
-
-
-
-
-
 
 
 //        Shape[] shapes = new Shape[9];

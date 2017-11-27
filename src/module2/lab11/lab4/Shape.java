@@ -1,13 +1,16 @@
-package module2.lab2_8.com.brainacad.oop.testshapes;
+package module2.lab11.lab4;
+
+import module2.lab2_8.com.brainacad.oop.testshapes.Circle;
+import module2.lab2_8.com.brainacad.oop.testshapes.Drawable;
+import module2.lab2_8.com.brainacad.oop.testshapes.Rectangle;
+import module2.lab2_8.com.brainacad.oop.testshapes.Triangle;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+
 public abstract class Shape implements Drawable {
     private String color;
-    public static final Pattern PATTERN_FOR_ARGUMENTS = Pattern.compile("\\d+");
-    public static final Pattern PATTERN_FOR_SHAPE = Pattern.compile("^[A-Z][a-z]+");
-    public static final Pattern PATTERN_FOR_COLOR = Pattern.compile("[A-Z]+");
 
     public Shape(String color) {
         this.color = color;
@@ -24,13 +27,15 @@ public abstract class Shape implements Drawable {
 
     public abstract double calculateArea();
 
-    public static Shape parseShape(String string) throws InvalidShapesStringException {
-
-        InvalidShapesStringException.isValid(string);
-
-        Matcher matcherForShape = PATTERN_FOR_SHAPE.matcher(string);
+    public static Object parseShape(String string) {
+        try {
+            InvalidShapeStringException.test(string);
+        } catch (InvalidShapeStringException e) {
+            System.out.println(e.getMessage());
+        }
+        Pattern patternForShape = Pattern.compile("[A-Z][a-z]+");
+        Matcher matcherForShape = patternForShape.matcher(string);
         String shape = "";
-
         while (matcherForShape.find()) {
             shape = matcherForShape.group();
         }
@@ -43,9 +48,13 @@ public abstract class Shape implements Drawable {
             case "Circle":
                 return Circle.parseCircle(string);
             default:
-                throw new InvalidShapesStringException("String is invalid!");
-
+                return null;
 
         }
     }
+
 }
+
+
+
+
