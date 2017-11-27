@@ -41,13 +41,11 @@ public class Circle extends Shape implements Comparable {
     public static Circle parseCircle(String string) {
 
         Matcher matcherForArguments = PATTERN_FOR_ARGUMENTS.matcher(string);
-        Matcher matcherForColor = PATTERN_FOR_COLOR.matcher(string);
+        Matcher matcher = PATTERN.matcher(string);
         String color = "";
-        while (matcherForColor.find()) {
-            color = matcherForColor.group();
+        while (matcher.find()) {
+            color = matcher.group(2);
         }
-
-
         double radius = 0;
         while (matcherForArguments.find()) {
             radius = Double.parseDouble(matcherForArguments.group());

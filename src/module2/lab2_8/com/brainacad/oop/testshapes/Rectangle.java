@@ -37,10 +37,10 @@ public class Rectangle extends Shape implements Comparable {
 
     public static Rectangle parseRectangle(String string) {
         Matcher matcherForArguments = PATTERN_FOR_ARGUMENTS.matcher(string);
-        Matcher matcherForColor = PATTERN_FOR_COLOR.matcher(string);
+        Matcher matcher = PATTERN.matcher(string);
         String color = "";
-        while (matcherForColor.find()) {
-            color = matcherForColor.group();
+        while (matcher.find()) {
+            color = matcher.group();
         }
 
         double[] arrayOfRectangle = new double[2];
@@ -52,7 +52,7 @@ public class Rectangle extends Shape implements Comparable {
         }
         return new Rectangle(color, arrayOfRectangle[0], arrayOfRectangle[1]);
 
-
     }
 
 }
+

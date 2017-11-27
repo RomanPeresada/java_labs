@@ -6,8 +6,7 @@ import java.util.regex.Pattern;
 public abstract class Shape implements Drawable {
     private String color;
     public static final Pattern PATTERN_FOR_ARGUMENTS = Pattern.compile("\\d+");
-    public static final Pattern PATTERN_FOR_SHAPE = Pattern.compile("^[A-Z][a-z]+");
-    public static final Pattern PATTERN_FOR_COLOR = Pattern.compile("[A-Z]+");
+    public static final Pattern PATTERN = Pattern.compile("([A-Z][a-z]+):([A-Z]+):\\d+(,\\d+)*");
 
     public Shape(String color) {
         this.color = color;
@@ -28,11 +27,11 @@ public abstract class Shape implements Drawable {
 
         InvalidShapesStringException.isValid(string);
 
-        Matcher matcherForShape = PATTERN_FOR_SHAPE.matcher(string);
+        Matcher matcher = PATTERN.matcher(string);
         String shape = "";
 
-        while (matcherForShape.find()) {
-            shape = matcherForShape.group();
+        while (matcher.find()) {
+            shape = matcher.group(1);
         }
 
         switch (shape) {

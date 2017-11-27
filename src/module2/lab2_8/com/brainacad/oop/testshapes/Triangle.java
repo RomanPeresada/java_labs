@@ -44,10 +44,10 @@ public class Triangle extends Shape implements Comparable {
     public static Triangle parseTriangle(String string) {
 
         Matcher matcherForArguments = PATTERN_FOR_ARGUMENTS.matcher(string);
-        Matcher matcherForColor = PATTERN_FOR_COLOR.matcher(string);
+        Matcher matcher = PATTERN.matcher(string);
         String color = "";
-        while (matcherForColor.find()) {
-            color = matcherForColor.group();
+        while (matcher.find()) {
+            color = matcher.group();
         }
         double[] arrayOfTriangle = new double[3];
         int j = 0;
