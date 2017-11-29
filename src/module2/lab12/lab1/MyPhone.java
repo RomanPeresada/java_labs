@@ -5,7 +5,7 @@ import java.util.Comparator;
 
 public class MyPhone {
 
-    MyPhoneBook myPhoneBook;
+    private MyPhoneBook myPhoneBook;
 
     public MyPhone() {
         myPhoneBook = new MyPhoneBook();
@@ -16,6 +16,10 @@ public class MyPhone {
         for (int i = 0; i < 10; i++)
             myPhoneBook.addPhoneNumbers("Mari" + i, "099345467" + i);
         System.out.println("OK");
+    }
+
+    public MyPhoneBook getMyPhoneBook() {
+        return myPhoneBook;
     }
 
     public void call(int counterOfCall){
@@ -57,7 +61,7 @@ public class MyPhone {
             Arrays.sort(this.phoneNumbers, new Comparator<PhoneNumbers>() {
                 @Override
                 public int compare(PhoneNumbers o1, PhoneNumbers o2) {
-                    return o1.getPhone().length() - o2.getPhone().length();
+                    return o1.getPhone().compareTo(o2.getPhone());
                 }
             });
         }
@@ -82,8 +86,8 @@ public class MyPhone {
 
             @Override
             public String toString() {
-                return  "name - '" + name + '\'' +
-                        ", phone - '" + phone;
+                return  "name - " + name +
+                        ", phone - " + phone;
             }
 
         }

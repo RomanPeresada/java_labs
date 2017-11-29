@@ -18,18 +18,19 @@ public class Main {
         myPhoneBook.addPhoneNumbers("Marina","0663472837");
         myPhoneBook.printPhoneBook();
 
-//        System.out.println("\nSort by Name");
-//
-//        myPhoneBook.sortByName();
-//        myPhoneBook.printPhoneBook();
-//
-//        System.out.println("\nSort by Number");
-//
-//        myPhoneBook.sortByNumber();
-//        myPhoneBook.printPhoneBook();
+        System.out.println("\nSort by Name");
+
+        myPhoneBook.sortByName();
+        myPhoneBook.printPhoneBook();
+
+        System.out.println("\nSort by Number");
+
+        myPhoneBook.sortByNumber();
+        myPhoneBook.printPhoneBook();
 
         MyPhone myPhone = new MyPhone();
         myPhone.swichOn();
+        myPhone.getMyPhoneBook().printPhoneBook();
         myPhone.call(1);
 
 

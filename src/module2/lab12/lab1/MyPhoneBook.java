@@ -34,7 +34,7 @@ public class MyPhoneBook {
         Arrays.sort(this.phoneNumbers, new Comparator<PhoneNumbers>() {
             @Override
             public int compare(PhoneNumbers o1, PhoneNumbers o2) {
-                return o1.getPhone().length() - o2.getPhone().length();
+                return o1.getPhone().compareTo(o2.getPhone());
             }
         });
     }
@@ -60,8 +60,8 @@ public class MyPhoneBook {
         @Override
         public String toString() {
             return "PhoneNumber: " +
-                    "name - '" + name + '\'' +
-                    ", phone - '" + phone;
+                    "name - " + name +
+                    ", phone - " + phone;
         }
 
     }
