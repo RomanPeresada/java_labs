@@ -1,4 +1,4 @@
-package module2.lab15.lab4;
+package module2.lab15.lab4_5;
 
 import java.util.*;
 
