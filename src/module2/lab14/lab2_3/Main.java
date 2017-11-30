@@ -1,4 +1,4 @@
-package module2.lab14.lab2;
+package module2.lab14.lab2_3;
 
 public class Main {
     public static void main(String[] args) {
