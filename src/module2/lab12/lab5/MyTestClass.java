@@ -2,12 +2,7 @@ package module2.lab12.lab5;
 
 public class MyTestClass {
 
-    private MyStaticNested myStaticNested = new MyStaticNested();
     private MyInner myInner = new MyInner();
-
-    public MyStaticNested getMyStaticNested() {
-        return myStaticNested;
-    }
 
     public MyInner getMyInner() {
         return myInner;
@@ -19,14 +14,16 @@ public class MyTestClass {
     }
 
     public static void main(String[] args) {
+
         MyTestClass myTestClass = new MyTestClass();
-        System.out.println("B = " + myTestClass.myInner.B);
-        System.out.println("A = " + myTestClass.myStaticNested.A);
+
+        System.out.println("B = " + myTestClass.getMyInner().B);
+        System.out.println("A = " + MyTestClass.MyStaticNested.A);
         System.out.println();
 
         MyInner myInner = myTestClass.new MyInner();
         MyTestClass.MyStaticNested myStaticNested = new MyTestClass.MyStaticNested();
-        myTestClass.methodForLocaleClass();
+        new MyTestClass().methodForLocaleClass();
     }
 
     static class MyStaticNested {

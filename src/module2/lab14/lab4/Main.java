@@ -1,7 +1,5 @@
 package module2.lab14.lab4;
 
-import test.polimorf.Array;
-
 import java.util.Arrays;
 
 public class Main {

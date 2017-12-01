@@ -21,7 +21,7 @@ public class Main {
             for (Shape s : shapes2) {
                 System.out.println(s);
             }
-            System.out.println("***************");
+            System.out.println("***************\n");
 
         }catch (InvalidShapesStringException e){
             System.out.println(e.getMessage());
