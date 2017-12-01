@@ -11,7 +11,7 @@ public class MyTestMethod {
         }
         System.out.println("Number of elements that are greater than " + maxElement + ": " + count);
     }
-
+    //обычно если мы получаем результат вычислений в методе, мы должны его вернуть
     public static <T extends Number> void calculateSun(T[] array, T maxValue) {
         Double result = Double.valueOf(0);
         for (T element : array) {
