@@ -1,7 +1,5 @@
 package module2.lab14.lab4;
 
-import test.polimorf.Array;
-
 import java.util.Arrays;
 
 public class Main {
@@ -14,6 +12,7 @@ public class Main {
         myMixerForString.shuffle();
         System.out.println(Arrays.toString(myMixerForInt.getArray()));
         System.out.println(Arrays.toString(myMixerForString.getArray()));
+
     }
 
 }

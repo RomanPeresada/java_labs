@@ -23,8 +23,8 @@ public class MyNumGenerator {
     public Set<Integer> generateDistinct() {
         Random random = new Random();
         Set<Integer> set = new HashSet<>(numOfElem);
-        for (int i = 0; i < numOfElem; i++){
-            while(!set.add(random.nextInt(maxNumb)));
+        while (set.size() < numOfElem) {
+            set.add(random.nextInt(maxNumb));
         }
         return set;
     }
