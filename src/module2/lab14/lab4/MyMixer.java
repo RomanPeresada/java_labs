@@ -1,5 +1,7 @@
 package module2.lab14.lab4;
 
+import java.util.Random;
+
 public class MyMixer<T> {
     private T[] array;
 
@@ -12,9 +14,12 @@ public class MyMixer<T> {
     }
 
     public T[] shuffle() {
-        for (int i = 0, j = array.length - 1; i < j; i++, j--){
-            T temp = array[i];
-            array[i] = array[j];
+        Random random = new Random();
+
+        for (int j = 0; j < array.length; j++) {
+            int initial = random.nextInt(array.length - 1);
+            T temp = array[initial];
+            array[initial] = array[j];
             array[j] = temp;
         }
         return array;
