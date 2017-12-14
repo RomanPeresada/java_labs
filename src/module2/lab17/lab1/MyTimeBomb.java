@@ -10,7 +10,6 @@ public class MyTimeBomb implements Runnable {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
                 System.out.println("I`m interrupted" + Thread.currentThread().getName());
-                return;
             }
         }
         System.out.println(Thread.currentThread().getName()+ " Boom!!!");
