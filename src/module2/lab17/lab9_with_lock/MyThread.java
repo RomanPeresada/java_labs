@@ -1,6 +1,6 @@
-package module2.lab17.lab9;
+package module2.lab17.lab9_with_lock;
 
-public class MyThread extends  Thread {
+public class MyThread extends Thread {
 
     private final MyObject obj1;
     private final MyObject obj2;
@@ -14,16 +14,25 @@ public class MyThread extends  Thread {
 
     @Override
     public void run() {
-        synchronized (obj1) {
+        obj1.getLock().lock();
+        try {
             System.out.println("Thread simple: Holding lock simple...");
             System.out.println("Thread simple: Waiting for lock 2...");
-            synchronized (obj2) {
+            obj2.getLock().lock();
+            try {
                 System.out.println("Thread simple: Holding lock 2...");
                 System.out.println("Thread simple: Waiting for lock 3...");
-                synchronized (obj3) {
+                obj3.getLock().lock();
+                try {
                     System.out.println("Thread simple: Holding lock 3...");
+                } finally {
+                    obj3.getLock().unlock();
                 }
+            } finally {
+                obj2.getLock().unlock();
             }
+        } finally {
+            obj1.getLock().unlock();
         }
     }
 }

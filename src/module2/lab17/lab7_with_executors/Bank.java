@@ -1,4 +1,4 @@
-package module2.lab17.lab7;
+package module2.lab17.lab7_with_executors;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -6,7 +6,7 @@ import java.util.concurrent.locks.ReentrantLock;
 public class Bank {
     private int accounts[];
     private int numOfAccounts;
-    private Lock lock = new ReentrantLock();
+ //   private Lock lock = new ReentrantLock();
 
     public Bank(int num_accounts, int init_balance) {
         accounts = new int[num_accounts];
@@ -17,7 +17,7 @@ public class Bank {
     }
 
     void transfer(int from, int to, int amount) {
-        lock.lock();
+      //  lock.lock();
         try {
             System.out.println("from: " + from + " to: " + to +
                     " amount: " + amount);
@@ -31,9 +31,9 @@ public class Bank {
 
         } catch (InterruptedException e) {
         }
-        finally {
-            lock.unlock();
-        }
+//        finally {
+//            lock.unlock();
+//        }
     }
 
     public int totalBalance() {

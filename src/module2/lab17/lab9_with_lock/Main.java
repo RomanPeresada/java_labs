@@ -1,4 +1,4 @@
-package module2.lab17.lab9;
+package module2.lab17.lab9_with_lock;
 
 public class Main {
     public static void main(String[] args) {

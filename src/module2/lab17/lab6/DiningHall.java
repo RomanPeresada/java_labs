@@ -13,7 +13,7 @@ public class DiningHall implements Runnable {
     }
 
     public boolean isMakeTenPizza() {
-        return countOfCalled == 10;
+        return countOfCalled >= 10;
     }
 
     public synchronized void servePizza() {
@@ -24,18 +24,22 @@ public class DiningHall implements Runnable {
         } else result = "Starved ";
         System.out.println(result + studentID);
         studentID++;
+        countOfCalled++;
     }
 
     @Override
     public void run() {
-        servePizza();
+        if (isMakeTenPizza()) {
+            System.out.println(Thread.currentThread().getName() + " serve pizza ");
+            servePizza();
+        }
     }
 
     public static void main(String[] args) {
         DiningHall d = new DiningHall();
         for (int i = 0; i < 20; i++)
             d.makePizza();
-        for (int i = 1; i <= 20; i++) {
+        for (int i = 0; i < 20; i++) {
             new Thread(d).start();
         }
     }
