@@ -2,7 +2,7 @@ package module3.lab1.lab4;
 
 import java.io.*;
 
-public class ReplacementInFile {
+public class ReplacementInFileWithTempFile {
     public static void main(String[] args) throws IOException {
         BufferedReader readerFromOriginal = null;
         BufferedReader readerFromTemp = null;
